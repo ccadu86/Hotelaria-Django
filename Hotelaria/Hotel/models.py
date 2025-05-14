@@ -8,3 +8,24 @@ class homepage(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+
+class quarto(models.Model):
+
+    tipo_quarto = [
+        ("Solteiro", "Solteiro"),
+        ("Premium", "Premium"),
+        ("Plus", "Plus"),
+    ]
+    status_status = [
+        (1, "Disponivel"),
+        (0, "Reservado")
+    ]
+
+    num_Quarto = models.IntegerField()
+    qtd_Hospedes = models.IntegerField()
+    tipo = models.CharField(choices=tipo_quarto)
+    valor = models.FloatField(max_length=3)
+    descricao = models.TextField(max_length=300)
+    status = models.BooleanField(choices=status_status, default=1)
+    img = models.ImageField(upload_to='quarto/')

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, authenticate, login
-from django.contrib import messages
 from .models import *
+from .forms import *
 
 # Create your views here.
 def Homepage(request):
@@ -29,6 +29,21 @@ def Login(request):
 
     else:
         return render(request, 'Login.html')
+    
+
+def addQuarto(request):
+    if request.method == "POST":
+        cadastro = addQuarto(request.POST)
+        if cadastro.is_valid():
+            cadastro.save()
+            return redirect('addQuarto')
+    else:    
+        context = {}
+        form = quartoForms()
+        context['form'] = form
+
+        return render(request, 'addQuartos.html', context)
+
 
 def Sair(request):
     logout(request)
