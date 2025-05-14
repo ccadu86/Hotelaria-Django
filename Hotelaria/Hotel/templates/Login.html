@@ -24,6 +24,9 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 <button type="submit">Entrar</button>
+                {% if alerta %}
+                    <p class="mlk-chato">{{alerta}}</p>
+                {% endif %}
             </form>
         </div>
     </div>

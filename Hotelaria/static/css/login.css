@@ -46,6 +46,10 @@
     outline: none;
 }
 
+.mlk-chato{
+    color: red;
+}
+
 button {
     width: 100%;
     padding: 0.8rem;

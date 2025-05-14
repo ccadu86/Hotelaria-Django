@@ -22,8 +22,10 @@ def Login(request):
             login(request, user)
             return redirect('homepage')
         else:
-            messages.error(request, 'Usuário ou senha inválidos.')
-            return render(request, 'Login.html')
+            context = {
+                "alerta" : "Usuário ou Senha Invalida"
+            }
+            return render(request, 'Login.html', context)
 
     else:
         return render(request, 'Login.html')
