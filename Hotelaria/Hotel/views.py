@@ -32,10 +32,11 @@ def Login(request):
     
 
 def addQuarto(request):
-    if request.method == "POST":
-        cadastro = addQuarto(request.POST)
-        if cadastro.is_valid():
-            cadastro.save()
+
+    if request.method == 'POST':
+        form = quartoForms(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('addQuarto')
     else:    
         context = {}
