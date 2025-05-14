@@ -23,6 +23,7 @@ def Login(request):
             return redirect('homepage')
         else:
             messages.error(request, 'Usuário ou senha inválidos.')
+            return render(request, 'Login.html')
 
     else:
         return render(request, 'Login.html')
