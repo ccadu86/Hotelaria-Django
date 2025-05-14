@@ -1,0 +1,107 @@
+/* Estilos gerais da Homepage */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+.homepage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.homepage-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    padding: 1.5rem;
+}
+
+.homepage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.homepage-title {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid var(--light-gray);
+    padding-bottom: 0.8rem;
+}
+
+.homepage-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+.homepage-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.homepage-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.homepage-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.homepage-logo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform var(--transition-speed);
+}
+
+.homepage-logo:hover {
+    transform: scale(1.03);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .homepage-content {
+        flex-direction: column;
+    }
+    
+    .homepage-image {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+    
+    .homepage-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.homepage-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
