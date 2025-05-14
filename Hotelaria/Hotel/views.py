@@ -37,7 +37,7 @@ def addQuarto(request):
         form = quartoForms(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('addQuarto')
+        return redirect('addQuarto')
     else:    
         context = {}
         form = quartoForms()
