@@ -32,18 +32,16 @@ def Login(request):
     
 
 def addQuarto(request):
-
     if request.method == 'POST':
-        form = quartoForms(request.POST)
+        form = quartoForms(request.POST, request.FILES)        
         if form.is_valid():
             form.save()
-        return redirect('addQuarto')
+            return redirect('addQuarto')
     else:    
-        context = {}
         form = quartoForms()
-        context['form'] = form
-
-        return render(request, 'addQuartos.html', context)
+    
+    context = {'form': form}
+    return render(request, 'addQuartos.html', context)
 
 
 def Sair(request):
